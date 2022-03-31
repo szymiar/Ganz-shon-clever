@@ -16,6 +16,13 @@ public class RoundTour implements Serializable {
         this.maxRoundNumber = calculateMaxRoundNumber(numOfPlayers);
     }
 
+    public void tourUp(){
+        tourNumber++;
+    }
+    public void roundUp(){
+        roundNumber++;
+    }
+
     public int getMaxRoundNumber() {
         return maxRoundNumber;
     }

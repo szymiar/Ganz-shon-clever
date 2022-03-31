@@ -7,14 +7,23 @@ import java.io.Serializable;
 
 public class Dices implements Serializable {
 
-    public Dice yellowDice = new Dice(GameElements.DiceColor.YELLOW);
-    public Dice blueDice= new Dice(GameElements.DiceColor.BLUE);
-    public Dice greenDice= new Dice(GameElements.DiceColor.GREEN);
-    public Dice violetDice= new Dice(GameElements.DiceColor.VIOLET);
-    public Dice orangeDice= new Dice(GameElements.DiceColor.ORANGE);
-    public Dice whiteDice= new Dice(GameElements.DiceColor.WHITE);
+
+
+
+    public Dice yellowDice;
+    public Dice blueDice;
+    public Dice greenDice;
+    public Dice violetDice;
+    public Dice orangeDice;
+    public Dice whiteDice;
 
     public Dices(){
+        this.yellowDice = new Dice(GameElements.DiceColor.YELLOW);
+        this.greenDice = new Dice(GameElements.DiceColor.GREEN);
+        this.blueDice = new Dice(GameElements.DiceColor.BLUE);
+        this.violetDice = new Dice(GameElements.DiceColor.VIOLET);
+        this.orangeDice = new Dice(GameElements.DiceColor.ORANGE);
+        this.whiteDice = new Dice(GameElements.DiceColor.WHITE);
     }
 
     public Dice getYellowDice() {
