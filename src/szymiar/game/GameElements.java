@@ -21,7 +21,8 @@ public class GameElements implements Serializable {
 
     public enum FieldBonus{
         FOX, VIOLET_SIX, BLUE_X, YELLOW_X, GREEN_X, ORANGE_SIX,
-        EXTRA_THROW, EXTRA_DICE, ORANGE_FOUR, ORANGE_FIVE
+        EXTRA_THROW, EXTRA_DICE, ORANGE_FOUR, ORANGE_FIVE ,
+        NONE
 
     }
 
@@ -34,5 +35,10 @@ public class GameElements implements Serializable {
         TEN, ELEVEN, TWELVE, X, EMPTY
     }
 
+    public enum FieldCondition{
+        EQUALS, GREATER_ONE, GREATER_TWO, GREATER_THREE,
+        GREATER_FOUR, GREATER_FIVE, GREATER_SIX,
+        GREATER_PREVIOUS , NONE, SUM_EQUALS
+    }
 
 }
