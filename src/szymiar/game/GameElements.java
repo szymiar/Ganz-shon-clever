@@ -38,7 +38,7 @@ public class GameElements implements Serializable {
     public enum FieldCondition{
         EQUALS, GREATER_ONE, GREATER_TWO, GREATER_THREE,
         GREATER_FOUR, GREATER_FIVE, GREATER_SIX,
-        GREATER_PREVIOUS , NONE, SUM_EQUALS
+        GREATER_PREVIOUS , SUM_EQUALS , FILLED_PREVIOUS , NONE
     }
 
 }
