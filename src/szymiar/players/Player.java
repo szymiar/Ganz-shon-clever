@@ -5,9 +5,16 @@ import szymiar.game.GameElements;
 import java.io.Serializable;
 
 public class Player implements Serializable {
-    public String nick;
+    private String nick;
     private int id;
     private GameElements.PlayerStatus status;
+
+    public Player(String nick, int id, GameElements.PlayerStatus status ) {
+        this.nick = nick;
+        this.status = status;
+        this.id = id;
+    }
+
 
     public String getNick() {
         return nick;
@@ -33,11 +40,7 @@ public class Player implements Serializable {
         this.status = status;
     }
 
-    public Player(String nick, int id, GameElements.PlayerStatus status ) {
-        this.nick = nick;
-        this.status = status;
-        this.id = id;
-    }
+
 
 
 }

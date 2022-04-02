@@ -4,11 +4,11 @@ import szymiar.game.GameElements;
 
 public class Field {
 
-    public int fieldId;
-    public GameElements.FieldValue fieldValue;
-    public GameElements.FieldColor fieldColor;
-    public GameElements.FieldBonus fieldBonus;
-    public GameElements.FieldCondition fieldCondition;
+    private int fieldId;
+    private GameElements.FieldValue fieldValue;
+    private GameElements.FieldColor fieldColor;
+    private GameElements.FieldBonus fieldBonus;
+    private GameElements.FieldCondition fieldCondition;
 
     public Field(int fieldId, GameElements.FieldValue fieldValue,
                  GameElements.FieldColor fieldColor,
@@ -19,6 +19,26 @@ public class Field {
         this.fieldColor = fieldColor;
         this.fieldBonus = fieldBonus;
         this.fieldCondition =fieldCondition;
+    }
+
+    public int getFieldId() {
+        return fieldId;
+    }
+
+    public GameElements.FieldColor getFieldColor() {
+        return fieldColor;
+    }
+
+    public GameElements.FieldBonus getFieldBonus() {
+        return fieldBonus;
+    }
+
+    public GameElements.FieldCondition getFieldCondition() {
+        return fieldCondition;
+    }
+
+    public void setFieldCondition(GameElements.FieldCondition fieldCondition) {
+        this.fieldCondition = fieldCondition;
     }
 
     public GameElements.FieldValue getFieldValue() {

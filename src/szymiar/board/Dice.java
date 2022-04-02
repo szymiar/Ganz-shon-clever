@@ -14,8 +14,8 @@ public class Dice implements Serializable {
 
 
 
-    public GameElements.DiceColor diceColor;
-    public GameElements.DiceValue diceValue;
+    private GameElements.DiceColor diceColor;
+    private GameElements.DiceValue diceValue;
 
     public Dice(GameElements.DiceColor diceColor, GameElements.DiceValue diceValue){
         this.diceColor = diceColor;

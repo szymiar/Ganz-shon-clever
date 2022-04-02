@@ -3,12 +3,12 @@ package szymiar.board;
 import java.io.Serializable;
 
 public class Board implements Serializable {
-    public Tray tray;
-    public Points points;
-    public Dices dices;
-    public DiceFields diceFields;
-    public Fields fields;
-    public Bonus bonus;
+    private Tray tray;
+    private Points points;
+    private Dices dices;
+    private DiceFields diceFields;
+    private Fields fields;
+    private Bonus bonus;
 
     public Board(Tray tray, Points points, Dices dices, DiceFields diceFields, Fields fields, Bonus bonus) {
         this.tray = tray;

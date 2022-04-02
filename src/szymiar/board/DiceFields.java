@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class DiceFields implements Serializable {
 
-    public Dice firstDiceField;
-    public Dice secondDiceField;
-    public Dice thirdDiceField;
+    private Dice firstDiceField;
+    private Dice secondDiceField;
+    private Dice thirdDiceField;
 
     public DiceFields(Dice firstDice){
         this.firstDiceField = firstDice;

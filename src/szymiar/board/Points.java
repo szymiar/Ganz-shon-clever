@@ -3,13 +3,13 @@ package szymiar.board;
 import java.io.Serializable;
 
 public class Points implements Serializable {
-    public int yellowPoints;
-    public int greenPoints;
-    public int orangePoints;
-    public int bluePoints;
-    public int violetPoints;
-    public int totalSum;
-    public int bonusPoints;
+    private int yellowPoints;
+    private int greenPoints;
+    private int orangePoints;
+    private int bluePoints;
+    private int violetPoints;
+    private int totalSum;
+    private int bonusPoints;
 
     public Points(Fields fields){
         this.yellowPoints = getYellowPoints(fields);

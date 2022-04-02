@@ -10,12 +10,12 @@ public class Dices implements Serializable {
 
 
 
-    public Dice yellowDice;
-    public Dice blueDice;
-    public Dice greenDice;
-    public Dice violetDice;
-    public Dice orangeDice;
-    public Dice whiteDice;
+    private Dice yellowDice;
+    private Dice blueDice;
+    private Dice greenDice;
+    private Dice violetDice;
+    private Dice orangeDice;
+    private Dice whiteDice;
 
     public Dices(){
         this.yellowDice = new Dice(GameElements.DiceColor.YELLOW);
