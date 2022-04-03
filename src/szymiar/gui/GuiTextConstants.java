@@ -26,6 +26,9 @@ public final class GuiTextConstants {
                     case ENGLISH_LANGUAGE:
                         result = "EN";
                         break;
+                    case EMPTY:
+                        result = "";
+                        break;
                 }
                 break;
             case POLISH:
@@ -47,6 +50,9 @@ public final class GuiTextConstants {
                         break;
                     case ENGLISH_LANGUAGE:
                         result = "EN";
+                        break;
+                    case EMPTY:
+                        result = "";
                         break;
                 }
                 break;
