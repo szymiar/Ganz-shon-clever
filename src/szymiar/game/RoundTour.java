@@ -1,6 +1,9 @@
 package szymiar.game;
 
+import java.io.IOException;
 import java.io.Serializable;
+
+
 
 public class RoundTour implements Serializable {
 
@@ -55,24 +58,29 @@ public class RoundTour implements Serializable {
         this.tourNumber = tourNumber;
     }
 
-    public int calculateMaxRoundNumber(int numOfPlayers){
+    public int calculateMaxRoundNumber(int numOfPlayers) throws NullPointerException, NumberFormatException{
         int res=6;
-        switch (numOfPlayers){
-            case 1:
-                res = 6;
-                break;
-            case 2:
-                res = 6;
-                break;
-            case 3:
-                res = 5;
-                break;
-            case 4:
-                res = 4;
-                break;
+        try {
+            switch (numOfPlayers) {
+                case 1:
+                    res = 6;
+                    break;
+                case 2:
+                    res = 6;
+                    break;
+                case 3:
+                    res = 5;
+                    break;
+                case 4:
+                    res = 4;
+                    break;
+            }
+        } catch(NullPointerException e){
+            System.out.println("No players " + e.getMessage());
         }
         return res;
     }
+
     public int calculateMaxTourNumber(int numOfPlayers){
         int res=1;
         switch (numOfPlayers){

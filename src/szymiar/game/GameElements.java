@@ -41,4 +41,6 @@ public class GameElements implements Serializable {
         GREATER_PREVIOUS , SUM_EQUALS , FILLED_PREVIOUS , NONE
     }
 
+
+
 }
