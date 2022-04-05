@@ -2,6 +2,11 @@ package szymiar.gui;
 
 public final class GuiTextConstants {
 
+/*
+To implement : Language packs stored in file ie XML
+ */
+
+
 
     public static String getTextConstant(GuiElements.guiLanguage language, GuiElements.guiTextField text){
         String result = "";
@@ -26,6 +31,9 @@ public final class GuiTextConstants {
                     case ENGLISH_LANGUAGE:
                         result = "EN";
                         break;
+                    case CREDITS:
+                        result = "Credits";
+                        break;
                     case EMPTY:
                         result = "";
                         break;
@@ -44,6 +52,9 @@ public final class GuiTextConstants {
                         break;
                     case JOIN_GAME:
                         result = "Dolacz do gry";
+                        break;
+                    case CREDITS:
+                        result = "Credits";
                         break;
                     case POLISH_LANGUAGE:
                         result = "PL";
