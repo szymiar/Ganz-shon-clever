@@ -155,6 +155,22 @@ public class View {
         f.add(button);
     }
 
+    public void configureTextField(JFrame f, JTextField textField, Rectangle rectangle,
+                                ActionListener actionListener){
+        textField.setBounds(rectangle);
+        textField.addActionListener(actionListener);
+        f.add(textField);
+    }
+
+
+    public void configureLabel(JFrame f, JLabel label, GuiElements.guiTextField textField, Rectangle rectangle,Font font, GuiElements.guiLanguage language){
+        label.setText(GuiTextConstants.getTextConstant(language, textField));
+        label.setBounds(rectangle);
+        label.setFont(font);
+        f.add(label);
+    }
+
+
 
     public void configureFrame(JFrame f, String title, int width, int height){
         f.setTitle(title);
