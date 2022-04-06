@@ -1,5 +1,6 @@
 package szymiar.gui.views;
 
+import sun.java2d.cmm.Profile;
 import szymiar.game.GameState;
 import szymiar.gui.GuiElements;
 import szymiar.gui.GuiTextConstants;
@@ -61,7 +62,46 @@ public class View {
                 gameView.configure();
                 run(frame);
                 break;
-
+            case LOGIN:
+                LoginView loginView = new LoginView(frame, guiLanguage);
+                loginView.configure();
+                run(frame);
+                break;
+            case REGISTER:
+                RegisterView registerView = new RegisterView(frame, guiLanguage);
+                registerView.configure();
+                run(frame);
+                break;
+            case JOIN_GAME:
+                JoinGameView joinGameView = new JoinGameView(frame, guiLanguage);
+                joinGameView.configure();
+                run(frame);
+                break;
+            case CREDITS:
+                CreditsView creditsView = new CreditsView(frame, guiLanguage);
+                creditsView.configure();
+                run(frame);
+                break;
+            case FRIENDS:
+                FriendsView friendsView = new FriendsView(frame, guiLanguage);
+                friendsView.configure();
+                run(frame);
+                break;
+            case GAME_LOBBY:
+                GameLobbyView gameLobbyView = new GameLobbyView(frame, guiLanguage);
+                gameLobbyView.configure();
+                run(frame);
+                break;
+            case PROFILE:
+                ProfileView profileView = new ProfileView(frame, guiLanguage);
+                profileView.configure();
+                run(frame);
+                break;
+            case RESET_PASSWORD:
+                ResetPasswordView resetPasswordView = new ResetPasswordView(frame, guiLanguage);
+                resetPasswordView.configure();
+                run(frame);
+                break;
         }
 
     }
@@ -88,6 +128,7 @@ public class View {
     }
 
     public void close(JFrame frame){
+
         frame.setVisible(false);
     }
 
@@ -113,6 +154,22 @@ public class View {
         button.addActionListener(actionListener);
         f.add(button);
     }
+
+    public void configureTextField(JFrame f, JTextField textField, Rectangle rectangle,
+                                ActionListener actionListener){
+        textField.setBounds(rectangle);
+        textField.addActionListener(actionListener);
+        f.add(textField);
+    }
+
+
+    public void configureLabel(JFrame f, JLabel label, GuiElements.guiTextField textField, Rectangle rectangle,Font font, GuiElements.guiLanguage language){
+        label.setText(GuiTextConstants.getTextConstant(language, textField));
+        label.setBounds(rectangle);
+        label.setFont(font);
+        f.add(label);
+    }
+
 
 
     public void configureFrame(JFrame f, String title, int width, int height){
