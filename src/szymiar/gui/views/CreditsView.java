@@ -11,6 +11,7 @@ public class CreditsView extends View{
     private JFrame frame;
     private GuiElements.guiViewType guiViewType;
     private GuiElements.guiLanguage guiLanguage;
+    private GuiElements.userType userType;
     private final int FRAME_WIDTH = 600;
     private final int FRAME_HEIGHT = 600;
     private final String FRAME_TITLE = "Ganz Shon Clever";
@@ -28,7 +29,7 @@ public class CreditsView extends View{
     private GuiElements.guiTextField returnButtonTextField = GuiElements.guiTextField.EMPTY;
     private ActionListener returnButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            CreditsView.super.switchView(frame, GuiElements.guiViewType.START, guiLanguage );
+            CreditsView.super.switchView(frame, GuiElements.guiViewType.START, guiLanguage, userType );
         }
     };
 
@@ -39,7 +40,7 @@ public class CreditsView extends View{
     private ActionListener polishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.POLISH;
-            CreditsView.super.switchView(frame, guiViewType, guiLanguage );
+            CreditsView.super.switchView(frame, guiViewType, guiLanguage, userType );
         }
     };
 
@@ -49,19 +50,35 @@ public class CreditsView extends View{
     private ActionListener englishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.ENGLISH;
-            CreditsView.super.switchView(frame, guiViewType, guiLanguage );
+            CreditsView.super.switchView(frame, guiViewType, guiLanguage , userType);
         }
     };
 
 
-    public CreditsView(JFrame frame, GuiElements.guiLanguage language){
+    /*
+    Labels configuration options
+     */
+    private final int HEADER_HEIGHT = 130;
+    private final int HEADER_WIDTH = 350;
+
+    private JLabel headerLabel;
+    private Rectangle headerLabelRectangle = new Rectangle(FRAME_WIDTH*4/12, FRAME_HEIGHT/20, HEADER_WIDTH, HEADER_HEIGHT  );
+    private GuiElements.guiTextField headerLabelTextField = GuiElements.guiTextField.CREDITS_VIEW_HEADER;
+    private Font headerLabelFont = new Font("Calibri", Font.BOLD, 32);
+
+
+
+
+    public CreditsView(JFrame frame, GuiElements.guiLanguage language, GuiElements.userType userType){
         super();
         this.frame = frame;
         this.guiLanguage = language;
-        this.guiViewType = GuiElements.guiViewType.CREATE_GAME;
+        this.guiViewType = GuiElements.guiViewType.CREDITS;
+        this.userType = userType;
         this.returnButton = new JButton();
         this.englishLanguageButton = new JButton();
         this.polishLanguageButton = new JButton();
+        this.headerLabel = new JLabel();
     }
 
 
@@ -74,6 +91,11 @@ public class CreditsView extends View{
         super.configureButton(this.frame, this.polishLanguageButton, this.polishLanguageButtonTextField, this.polishLanguageButtonRectangle, this.polishLanguageButtonListener, this.guiLanguage);
         super.configureButton(this.frame, this.englishLanguageButton, this.englishLanguageButtonTextField, this.englishLanguageButtonRectangle, this.englishLanguageButtonListener, this.guiLanguage);
         super.configureButton(this.frame, this.returnButton, this.returnButtonTextField, this.returnButtonRectangle, this.returnButtonListener, this.guiLanguage);
+
+        /*
+        Configure labels
+         */
+        super.configureLabel(this.frame, this.headerLabel, this.headerLabelTextField, this.headerLabelRectangle, this.headerLabelFont, this.guiLanguage);
 
         /*
         Configure frame

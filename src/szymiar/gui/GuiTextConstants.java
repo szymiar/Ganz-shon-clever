@@ -73,6 +73,55 @@ To implement : Language packs stored in file ie XML
                     case NEW_PASSWORD:
                         result = "new password";
                         break;
+                    case CREATE_GAME_VIEW_HEADER:
+                        result = "Create new game";
+                        break;
+                    case NAME:
+                        result = "Name";
+                        break;
+                    case PLAYERS_NUMBER:
+                        result = "Players' number";
+                        break;
+                    case ENTER_PASSWORD:
+                        result = "Enter password";
+                        break;
+                    case CREATE:
+                        result = "CREATE";
+                        break;
+                    case YES:
+                        result = "yes";
+                        break;
+                    case NO:
+                        result = "no";
+                        break;
+                    case ONE:
+                        result = "1";
+                        break;
+                    case TWO:
+                        result = "2";
+                        break;
+                    case THREE:
+                        result = "3";
+                        break;
+                    case FOUR:
+                        result = "4";
+                        break;
+                    case CREDITS_VIEW_HEADER:
+                        result = "Credits";
+                        break;
+                    case PROFILE:
+                        result = "PROFILE";
+                        break;
+                    case FRIENDS:
+                        result = "FRIENDS";
+                        break;
+                    case LOG_OUT:
+                        result = "LOG OUT";
+                        break;
+                    case YOUR_LEVEL:
+                        result = "Your level: ";
+                        break;
+
                 }
                 break;
             case POLISH:
@@ -136,6 +185,54 @@ To implement : Language packs stored in file ie XML
                         break;
                     case NEW_PASSWORD:
                         result = "nowe hasło";
+                        break;
+                    case ENTER_PASSWORD:
+                        result = "Wprowadź hasło";
+                        break;
+                    case CREATE_GAME_VIEW_HEADER:
+                        result = "Utwórz nową grę";
+                        break;
+                    case NAME:
+                        result = "Nazwa";
+                        break;
+                    case PLAYERS_NUMBER:
+                        result = "Liczba graczy";
+                        break;
+                    case CREATE:
+                        result = "Utwórz";
+                        break;
+                    case YES:
+                        result = "tak";
+                        break;
+                    case NO:
+                        result = "nie";
+                        break;
+                    case ONE:
+                        result = "1";
+                        break;
+                    case TWO:
+                        result = "2";
+                        break;
+                    case THREE:
+                        result = "3";
+                        break;
+                    case FOUR:
+                        result = "4";
+                        break;
+                    case CREDITS_VIEW_HEADER:
+                        result = "Twórcy";
+                        break;
+                    case PROFILE:
+                        result = "PROFIL";
+                        break;
+                    case FRIENDS:
+                        result = "ZNAJOMI";
+                        break;
+                    case LOG_OUT:
+                        result = "WYLOGUJ";
+                        break;
+                    case YOUR_LEVEL:
+                        result = "Twój poziom: ";
                         break;
                 }
                 break;

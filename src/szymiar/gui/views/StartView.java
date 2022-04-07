@@ -1,20 +1,20 @@
 package szymiar.gui.views;
 
 
-import org.w3c.dom.css.Rect;
+
 import szymiar.gui.GuiElements;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLOutput;
+
 
 
 public class StartView extends View {
 
 
-    private GuiElements.userType userType = GuiElements.userType.ANONYMOUS; //For now
+    private GuiElements.userType userType; //For now
 
 
     /*
@@ -43,7 +43,7 @@ public class StartView extends View {
     private GuiElements.guiTextField registerButtonTextField = GuiElements.guiTextField.REGISTER;
     private ActionListener registerButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            StartView.super.switchView(frame, GuiElements.guiViewType.REGISTER , guiLanguage);
+            StartView.super.switchView(frame, GuiElements.guiViewType.REGISTER , guiLanguage, userType);
 
         }
     };
@@ -53,7 +53,7 @@ public class StartView extends View {
     private GuiElements.guiTextField loginButtonTextField = GuiElements.guiTextField.LOGIN;
     private ActionListener loginButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            StartView.super.switchView(frame, GuiElements.guiViewType.LOGIN , guiLanguage);
+            StartView.super.switchView(frame, GuiElements.guiViewType.LOGIN , guiLanguage, userType);
         }
     };
 
@@ -63,7 +63,7 @@ public class StartView extends View {
     private GuiElements.guiTextField createGameButtonTextField = GuiElements.guiTextField.CREATE_GAME;
     private ActionListener createGameButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            StartView.super.switchView(frame, GuiElements.guiViewType.CREATE_GAME , guiLanguage);
+            StartView.super.switchView(frame, GuiElements.guiViewType.CREATE_GAME , guiLanguage, userType);
         }
     };
 
@@ -74,7 +74,7 @@ public class StartView extends View {
     private GuiElements.guiTextField joinGameButtonTextField = GuiElements.guiTextField.JOIN_GAME;
     private ActionListener joinGameButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            StartView.super.switchView(frame, GuiElements.guiViewType.JOIN_GAME , guiLanguage);
+            StartView.super.switchView(frame, GuiElements.guiViewType.JOIN_GAME , guiLanguage, userType);
         }
     };
 
@@ -84,7 +84,7 @@ public class StartView extends View {
     private GuiElements.guiTextField creditsButtonTextField = GuiElements.guiTextField.CREDITS;
     private ActionListener creditsButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            StartView.super.switchView(frame, GuiElements.guiViewType.CREDITS , guiLanguage);
+            StartView.super.switchView(frame, GuiElements.guiViewType.CREDITS , guiLanguage, userType);
         }
     };
 
@@ -96,7 +96,7 @@ public class StartView extends View {
     private ActionListener polishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.POLISH;
-            StartView.super.switchView(frame, guiViewType, guiLanguage );
+            StartView.super.switchView(frame, guiViewType, guiLanguage, userType );
         }
     };
 
@@ -106,9 +106,53 @@ public class StartView extends View {
     private ActionListener englishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.ENGLISH;
-            StartView.super.switchView(frame, guiViewType, guiLanguage );
+            StartView.super.switchView(frame, guiViewType, guiLanguage, userType );
         }
     };
+
+
+
+    private JButton profileButton;
+    private Rectangle profileButtonRectangle = new Rectangle(FRAME_WIDTH/20,FRAME_HEIGHT*4/10,BUTTONS_WIDTH, BUTTONS_HEIGHT);
+    private GuiElements.guiTextField profileButtonTextField = GuiElements.guiTextField.PROFILE;
+    private ActionListener profileButtonListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            StartView.super.switchView(frame, GuiElements.guiViewType.PROFILE , guiLanguage, userType);
+        }
+    };
+
+    private JButton friendsButton;
+    private Rectangle friendsButtonRectangle = new Rectangle(FRAME_WIDTH/20,FRAME_HEIGHT*5/10,BUTTONS_WIDTH, BUTTONS_HEIGHT);
+    private GuiElements.guiTextField friendsButtonTextField = GuiElements.guiTextField.FRIENDS;
+    private ActionListener friendsButtonListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            StartView.super.switchView(frame, GuiElements.guiViewType.FRIENDS , guiLanguage, userType);
+        }
+    };
+
+    private JButton logOutButton;
+    private Rectangle logOutButtonRectangle = new Rectangle(FRAME_WIDTH/20,FRAME_HEIGHT*6/10,BUTTONS_WIDTH, BUTTONS_HEIGHT);
+    private GuiElements.guiTextField logOutButtonTextField = GuiElements.guiTextField.LOG_OUT;
+    private ActionListener logOutButtonListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            //Log out configuration
+            userType = GuiElements.userType.ANONYMOUS;
+            StartView.super.switchView(frame, GuiElements.guiViewType.START , guiLanguage, userType);
+        }
+    };
+
+    private JButton loginTestButton;
+    private Rectangle loginTestButtonRectangle = new Rectangle(FRAME_WIDTH/20,FRAME_HEIGHT*9/10,BUTTONS_WIDTH, BUTTONS_HEIGHT);
+    private GuiElements.guiTextField loginTestButtonTextField = GuiElements.guiTextField.EMPTY;
+    private ActionListener loginTestButtonListener = new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            //Log out configuration
+            userType = GuiElements.userType.LOGGED;
+            StartView.super.switchView(frame, GuiElements.guiViewType.START , guiLanguage, userType);
+        }
+    };
+
+
 
 
     /*
@@ -119,6 +163,7 @@ public class StartView extends View {
     private final int HELLO_LABEL_HEIGHT = 70;
     private final int HELLO_LABEL_WIDTH = 230;
 
+    // label.setHorizontalAlignment(JLabel.CENTER);
 
     private JLabel headerLabel;
     private Rectangle headerLabelRectangle = new Rectangle(FRAME_WIDTH*4/12, FRAME_HEIGHT * 1/20, HEADER_WIDTH, HEADER_HEIGHT  );
@@ -133,16 +178,23 @@ public class StartView extends View {
     private Font helloLabelFont = new Font("Calibri", Font.PLAIN, 16);
 
 
+    private JLabel levelLabel;
+    private Rectangle levelLabelRectangle = new Rectangle(FRAME_WIDTH/20, FRAME_HEIGHT*5/20, HELLO_LABEL_WIDTH, HELLO_LABEL_HEIGHT);
+    private GuiElements.guiTextField levelLabelTextField = GuiElements.guiTextField.YOUR_LEVEL;
+    private Font levelLabelFont = new Font("Calibri", Font.PLAIN, 16);
+
+
     /*
     Text input fields configuration options
      */
 
 
 
-    public StartView(JFrame frame, GuiElements.guiLanguage language){
+    public StartView(JFrame frame, GuiElements.guiLanguage language, GuiElements.userType userType){
         //super();
         super();
         this.guiLanguage = language;
+        this.userType = userType;
         this.frame = frame;
         this.guiViewType = GuiElements.guiViewType.START;
         this.loginButton = new JButton();
@@ -152,8 +204,13 @@ public class StartView extends View {
         this.polishLanguageButton = new JButton();
         this.englishLanguageButton = new JButton();
         this.creditsButton = new JButton();
+        this.profileButton = new JButton();
+        this.friendsButton = new JButton();
+        this.logOutButton = new JButton();
+        this.loginTestButton = new JButton();
         this.headerLabel = new JLabel();
         this.helloLabel = new JLabel();
+        this.levelLabel = new JLabel();
     }
 
     public void configure(){
@@ -171,6 +228,7 @@ public class StartView extends View {
                 super.configureButton(this.frame, this.polishLanguageButton, this.polishLanguageButtonTextField, this.polishLanguageButtonRectangle, this.polishLanguageButtonListener, this.guiLanguage);
                 super.configureButton(this.frame, this.englishLanguageButton, this.englishLanguageButtonTextField, this.englishLanguageButtonRectangle, this.englishLanguageButtonListener, this.guiLanguage);
                 super.configureButton(this.frame, this.creditsButton, this.creditsButtonTextField, this.creditsButtonRectangle, this.creditsButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.loginTestButton, this.loginTestButtonTextField, this.loginTestButtonRectangle, this.loginTestButtonListener, this.guiLanguage);
 
                 /*
                 Configure labels
@@ -179,8 +237,29 @@ public class StartView extends View {
                 super.configureLabel(this.frame, this.headerLabel, this.headerLabelTextField, this.headerLabelRectangle,this.headerLabelFont, this.guiLanguage);
                 super.configureLabel(this.frame, this.helloLabel, this.helloLabelTextField, this.helloLabelRectangle, this.helloLabelFont,this.guiLanguage);
                 break;
+
+
             case LOGGED:
-                //
+                /*
+                Configure buttons
+                */
+                super.configureButton(this.frame, this.createGameButton, this.createGameButtonTextField, this.createGameButtonRectangle, this.createGameButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.joinGameButton, this.joinGameButtonTextField, this.joinGameButtonRectangle, this.joinGameButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.polishLanguageButton, this.polishLanguageButtonTextField, this.polishLanguageButtonRectangle, this.polishLanguageButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.englishLanguageButton, this.englishLanguageButtonTextField, this.englishLanguageButtonRectangle, this.englishLanguageButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.creditsButton, this.creditsButtonTextField, this.creditsButtonRectangle, this.creditsButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.profileButton, this.profileButtonTextField, this.profileButtonRectangle, this.profileButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.friendsButton,this.friendsButtonTextField, this.friendsButtonRectangle, this.friendsButtonListener, this.guiLanguage);
+                super.configureButton(this.frame, this.logOutButton, this.logOutButtonTextField, this.logOutButtonRectangle, this.logOutButtonListener, this.guiLanguage);
+
+                /*
+                Configure labels
+                 */
+
+                super.configureLabel(this.frame, this.headerLabel, this.headerLabelTextField, this.headerLabelRectangle,this.headerLabelFont, this.guiLanguage);
+                super.configureLabel(this.frame, this.helloLabel, this.helloLabelTextField, this.helloLabelRectangle, this.helloLabelFont,this.guiLanguage);
+                super.configureLabel(this.frame, this.levelLabel, this.levelLabelTextField, this.levelLabelRectangle, this.levelLabelFont,this.guiLanguage);
+
                 break;
         }
 
