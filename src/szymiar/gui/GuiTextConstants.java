@@ -121,7 +121,33 @@ To implement : Language packs stored in file ie XML
                     case YOUR_LEVEL:
                         result = "Your level: ";
                         break;
-
+                    case DISCARD_GAME:
+                        result = "DISCARD GAME";
+                        break;
+                    case INVITE:
+                        result = "INVITE";
+                        break;
+                    case START_GAME:
+                        result = "START GAME";
+                        break;
+                    case GAME_LOBBY_HEADER:
+                        result = "Players";
+                        break;
+                    case ENTER_USERNAME_EMAIL:
+                        result = "enter user/email";
+                        break;
+                    case BEST_SCORE:
+                        result = "best score";
+                        break;
+                    case GAMES_PLAYED:
+                        result = "games played";
+                        break;
+                    case INVITE_PLAYER:
+                        result = "Invite player";
+                        break;
+                    case INVITE_FRIEND:
+                        result = "Invite friend";
+                        break;
                 }
                 break;
             case POLISH:
@@ -233,6 +259,33 @@ To implement : Language packs stored in file ie XML
                         break;
                     case YOUR_LEVEL:
                         result = "Twój poziom: ";
+                        break;
+                    case DISCARD_GAME:
+                        result = "ODRZUĆ";
+                        break;
+                    case INVITE:
+                        result = "ZAPROŚ";
+                        break;
+                    case START_GAME:
+                        result = "ROZPOCZNIJ";
+                        break;
+                    case GAME_LOBBY_HEADER:
+                        result = "Gracze";
+                        break;
+                    case ENTER_USERNAME_EMAIL:
+                        result = "Podaj nazwe/email";
+                        break;
+                    case BEST_SCORE:
+                        result = "najlepszy wynik";
+                        break;
+                    case GAMES_PLAYED:
+                        result = "rozegrane gry";
+                        break;
+                    case INVITE_PLAYER:
+                        result = "Zaproś gracza";
+                        break;
+                    case INVITE_FRIEND:
+                        result = "Zaproś znajomego";
                         break;
                 }
                 break;

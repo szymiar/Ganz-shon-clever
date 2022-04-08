@@ -5,23 +5,40 @@ import szymiar.game.GameElements;
 import java.io.Serializable;
 
 public class Player implements Serializable {
-    private String nick;
+    private String username;
+    private String email;
     private int id;
-    private GameElements.PlayerStatus status;
+    private GameElements.PlayerStatus playerStatus;
+    private GameElements.PlayerType playerType;
 
-    public Player(String nick, int id, GameElements.PlayerStatus status ) {
-        this.nick = nick;
-        this.status = status;
+
+    public Player(String username, int id, String email, GameElements.PlayerStatus playerStatus ) {
+        this.username = username;
+        this.playerStatus = playerStatus;
+        this.id = id;
+        this.email = email;
+    }
+    public Player(String username, int id, String email, GameElements.PlayerStatus playerStatus, GameElements.PlayerType playerType) {
+        this.username = username;
+        this.playerStatus = playerStatus;
+        this.id = id;
+        this.email = email;
+        this.playerType = playerType;
+    }
+
+    public Player(String username, int id, GameElements.PlayerStatus playerStatus, GameElements.PlayerType playerType ) {
+        this.username = username;
+        this.playerStatus = playerStatus;
         this.id = id;
     }
 
 
-    public String getNick() {
-        return nick;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setUsername(String nick) {
+        this.username = nick;
     }
 
     public int getId() {
@@ -32,15 +49,27 @@ public class Player implements Serializable {
         this.id = id;
     }
 
-    public GameElements.PlayerStatus getStatus() {
-        return status;
+    public GameElements.PlayerStatus getPlayerStatus() {
+        return playerStatus;
     }
 
-    public void setStatus(GameElements.PlayerStatus status) {
-        this.status = status;
+    public void setPlayerStatus(GameElements.PlayerStatus status) {
+        this.playerStatus = status;
     }
 
+    public GameElements.PlayerType getPlayerType() {
+        return playerType;
+    }
 
+    public void setPlayerType(GameElements.PlayerType playerType) {
+        this.playerType = playerType;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

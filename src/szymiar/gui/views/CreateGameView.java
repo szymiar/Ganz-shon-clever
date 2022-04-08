@@ -42,7 +42,7 @@ public class CreateGameView extends View{
         public void actionPerformed(ActionEvent e){
             // Action listener from all JTextFields, message box "are you sure" appears, default
             // parameters set
-            System.out.println("Create");
+            CreateGameView.super.switchView(frame, GuiElements.guiViewType.GAME_LOBBY, guiLanguage, GuiElements.userType.OWNER);
 
         }
     };
