@@ -11,6 +11,7 @@ public class FriendsView extends View{
     private JFrame frame;
     private GuiElements.guiViewType guiViewType;
     private GuiElements.guiLanguage guiLanguage;
+    private GuiElements.userType userType;
     private final int FRAME_WIDTH = 600;
     private final int FRAME_HEIGHT = 600;
     private final String FRAME_TITLE = "Ganz Shon Clever";
@@ -28,7 +29,7 @@ public class FriendsView extends View{
     private GuiElements.guiTextField returnButtonTextField = GuiElements.guiTextField.EMPTY;
     private ActionListener returnButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            FriendsView.super.switchView(frame, GuiElements.guiViewType.START, guiLanguage );
+            FriendsView.super.switchView(frame, GuiElements.guiViewType.START, guiLanguage , userType);
         }
     };
 
@@ -39,7 +40,7 @@ public class FriendsView extends View{
     private ActionListener polishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.POLISH;
-            FriendsView.super.switchView(frame, guiViewType, guiLanguage );
+            FriendsView.super.switchView(frame, guiViewType, guiLanguage , userType);
         }
     };
 
@@ -49,16 +50,17 @@ public class FriendsView extends View{
     private ActionListener englishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.ENGLISH;
-            FriendsView.super.switchView(frame, guiViewType, guiLanguage );
+            FriendsView.super.switchView(frame, guiViewType, guiLanguage, userType );
         }
     };
 
 
-    public FriendsView(JFrame frame, GuiElements.guiLanguage language){
+    public FriendsView(JFrame frame, GuiElements.guiLanguage language , GuiElements.userType userType){
         super();
         this.frame = frame;
         this.guiLanguage = language;
         this.guiViewType = GuiElements.guiViewType.CREATE_GAME;
+        this.userType = userType;
         this.returnButton = new JButton();
         this.englishLanguageButton = new JButton();
         this.polishLanguageButton = new JButton();

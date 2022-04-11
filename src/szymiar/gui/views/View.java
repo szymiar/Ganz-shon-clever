@@ -1,13 +1,12 @@
 package szymiar.gui.views;
 
-import sun.java2d.cmm.Profile;
+
 import szymiar.game.GameState;
 import szymiar.gui.GuiElements;
 import szymiar.gui.GuiTextConstants;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class View {
@@ -16,6 +15,8 @@ public class View {
     private GuiElements.guiLanguage guiLanguage;
 
     private GuiElements.guiViewType guiViewType;
+
+    private GuiElements.userType userType;
 
     public View(){
         this.guiLanguage = GuiElements.guiLanguage.ENGLISH;
@@ -44,16 +45,16 @@ public class View {
         this.frame = frame;
     }
 
-    public void switchView(JFrame frame , GuiElements.guiViewType guiViewType, GuiElements.guiLanguage guiLanguage){
+    public void switchView(JFrame frame , GuiElements.guiViewType guiViewType, GuiElements.guiLanguage guiLanguage, GuiElements.userType userType){
         close(frame);
         switch(guiViewType){
             case START:
-                StartView startView = new StartView(frame, guiLanguage);
+                StartView startView = new StartView(frame, guiLanguage , userType);
                 startView.configure();
                 run(frame);
                 break;
             case CREATE_GAME:
-                CreateGameView createGameView = new CreateGameView(frame, guiLanguage);
+                CreateGameView createGameView = new CreateGameView(frame, guiLanguage, userType);
                 createGameView.configure();
                 run(frame);
                 break;
@@ -63,42 +64,42 @@ public class View {
                 run(frame);
                 break;
             case LOGIN:
-                LoginView loginView = new LoginView(frame, guiLanguage);
+                LoginView loginView = new LoginView(frame, guiLanguage, userType);
                 loginView.configure();
                 run(frame);
                 break;
             case REGISTER:
-                RegisterView registerView = new RegisterView(frame, guiLanguage);
+                RegisterView registerView = new RegisterView(frame, guiLanguage, userType);
                 registerView.configure();
                 run(frame);
                 break;
             case JOIN_GAME:
-                JoinGameView joinGameView = new JoinGameView(frame, guiLanguage);
+                JoinGameView joinGameView = new JoinGameView(frame, guiLanguage, userType);
                 joinGameView.configure();
                 run(frame);
                 break;
             case CREDITS:
-                CreditsView creditsView = new CreditsView(frame, guiLanguage);
+                CreditsView creditsView = new CreditsView(frame, guiLanguage, userType);
                 creditsView.configure();
                 run(frame);
                 break;
             case FRIENDS:
-                FriendsView friendsView = new FriendsView(frame, guiLanguage);
+                FriendsView friendsView = new FriendsView(frame, guiLanguage, userType);
                 friendsView.configure();
                 run(frame);
                 break;
             case GAME_LOBBY:
-                GameLobbyView gameLobbyView = new GameLobbyView(frame, guiLanguage);
+                GameLobbyView gameLobbyView = new GameLobbyView(frame, guiLanguage, userType);
                 gameLobbyView.configure();
                 run(frame);
                 break;
             case PROFILE:
-                ProfileView profileView = new ProfileView(frame, guiLanguage);
+                ProfileView profileView = new ProfileView(frame, guiLanguage, userType);
                 profileView.configure();
                 run(frame);
                 break;
             case RESET_PASSWORD:
-                ResetPasswordView resetPasswordView = new ResetPasswordView(frame, guiLanguage);
+                ResetPasswordView resetPasswordView = new ResetPasswordView(frame, guiLanguage, userType);
                 resetPasswordView.configure();
                 run(frame);
                 break;
@@ -107,7 +108,7 @@ public class View {
     }
 
     public void openStartView(JFrame frame){
-        StartView startView =  new StartView(frame, this.guiLanguage);
+        StartView startView =  new StartView(frame, this.guiLanguage, GuiElements.userType.ANONYMOUS);
         startView.configure();
         run(frame);
     }
@@ -171,11 +172,39 @@ public class View {
     }
 
 
+    public void configureComboBox(JFrame f, JComboBox comboBox,  Rectangle rectangle){
+        comboBox.setBounds(rectangle);
+        f.add(comboBox);
+    }
+    public void configureComboBox(JFrame f, JComboBox comboBox,  Rectangle rectangle, ActionListener listener){
+        comboBox.setBounds(rectangle);
+        comboBox.addActionListener(listener);
+        f.add(comboBox);
+    }
+
+    public String[] convertTextFieldEnums(GuiElements.guiTextField[] textFields, GuiElements.guiLanguage language){
+        String result[] = new String[textFields.length];
+        int i = 0;
+        for(GuiElements.guiTextField tf : textFields){
+            result[i] = GuiTextConstants.getTextConstant(language, tf);
+            i++;
+        }
+        return result;
+    }
+
 
     public void configureFrame(JFrame f, String title, int width, int height){
         f.setTitle(title);
         f.setSize(width, height);
         f.setLayout(null);
+    }
+
+    public GuiElements.userType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(GuiElements.userType userType) {
+        this.userType = userType;
     }
 
     public JFrame getFrame() {

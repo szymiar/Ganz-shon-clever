@@ -11,6 +11,7 @@ public class LoginView extends View{
     private JFrame frame;
     private GuiElements.guiViewType guiViewType;
     private GuiElements.guiLanguage guiLanguage;
+    private GuiElements.userType userType;
     private final int FRAME_WIDTH = 600;
     private final int FRAME_HEIGHT = 600;
     private final String FRAME_TITLE = "Login page";
@@ -28,7 +29,7 @@ public class LoginView extends View{
     private GuiElements.guiTextField returnButtonTextField = GuiElements.guiTextField.EMPTY;
     private ActionListener returnButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
-            LoginView.super.switchView(frame, GuiElements.guiViewType.START, guiLanguage );
+            LoginView.super.switchView(frame, GuiElements.guiViewType.START, guiLanguage, userType );
         }
     };
 
@@ -51,7 +52,7 @@ public class LoginView extends View{
     private ActionListener polishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.POLISH;
-            LoginView.super.switchView(frame, guiViewType, guiLanguage );
+            LoginView.super.switchView(frame, guiViewType, guiLanguage, userType );
         }
     };
 
@@ -61,7 +62,7 @@ public class LoginView extends View{
     private ActionListener englishLanguageButtonListener = new ActionListener(){
         public void actionPerformed(ActionEvent e){
             guiLanguage = GuiElements.guiLanguage.ENGLISH;
-            LoginView.super.switchView(frame, guiViewType, guiLanguage );
+            LoginView.super.switchView(frame, guiViewType, guiLanguage , userType);
         }
     };
 
@@ -112,11 +113,12 @@ public class LoginView extends View{
 
 
 
-    public LoginView(JFrame frame, GuiElements.guiLanguage language){
+    public LoginView(JFrame frame, GuiElements.guiLanguage language, GuiElements.userType userType){
         super();
         this.frame = frame;
         this.guiLanguage = language;
         this.guiViewType = GuiElements.guiViewType.LOGIN;
+        this.userType = userType;
         this.returnButton = new JButton();
         this.englishLanguageButton = new JButton();
         this.polishLanguageButton = new JButton();

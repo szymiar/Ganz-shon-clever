@@ -2,6 +2,7 @@ package szymiar.client;
 
 
 import szymiar.game.GameState;
+import szymiar.gui.GuiElements;
 import szymiar.gui.views.StartView;
 import szymiar.gui.views.View;
 
@@ -34,7 +35,7 @@ public class ClientGuiManager {
         closeView();
         this.view = newView;
         this.frame = newView.getFrame();
-        newView.switchView(this.frame, newView.getGuiViewType(), newView.getGuiLanguage());
+        newView.switchView(this.frame, newView.getGuiViewType(), newView.getGuiLanguage(), newView.getUserType());
     }
 
 
