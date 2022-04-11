@@ -19,6 +19,10 @@ public class GameElements implements Serializable {
         ACTIVE, PASSIVE
     }
 
+    public enum PlayerType{
+        OWNER, JOINER
+    }
+
     public enum FieldBonus{
         FOX, VIOLET_SIX, BLUE_X, YELLOW_X, GREEN_X, ORANGE_SIX,
         EXTRA_THROW, EXTRA_DICE, ORANGE_FOUR, ORANGE_FIVE ,
@@ -40,5 +44,7 @@ public class GameElements implements Serializable {
         GREATER_FOUR, GREATER_FIVE, GREATER_SIX,
         GREATER_PREVIOUS , SUM_EQUALS , FILLED_PREVIOUS , NONE
     }
+
+
 
 }

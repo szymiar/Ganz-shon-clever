@@ -5,10 +5,10 @@ import szymiar.game.GameElements;
 import java.io.Serializable;
 
 public class Bonus implements Serializable {
-    public GameElements.FieldBonus fieldBonus;
-    public GameElements.ActionBonus actionBonus;
-    public int extraDiceCount;
-    public int extraThrowCount;
+    private GameElements.FieldBonus fieldBonus;
+    private GameElements.ActionBonus actionBonus;
+    private int extraDiceCount;
+    private int extraThrowCount;
 
 
     public Bonus(GameElements.FieldBonus fieldBonus,

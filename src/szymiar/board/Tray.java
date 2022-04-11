@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 public class Tray implements Serializable {
 
-    public Dice firstTrayField;
-    public Dice secondTrayField;
-    public Dice thirdTrayField;
-    public Dice fourthTrayField;
-    public Dice fifthTrayField;
-    public Dice sixthTrayField;
+    private Dice firstTrayField;
+    private Dice secondTrayField;
+    private Dice thirdTrayField;
+    private Dice fourthTrayField;
+    private Dice fifthTrayField;
+    private Dice sixthTrayField;
 
     public Tray(Dice firstDice){
         this.firstTrayField = firstDice;

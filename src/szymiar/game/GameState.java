@@ -7,9 +7,9 @@ import java.io.Serializable;
 
 public class GameState implements Serializable {
 
-    public Board board;
-    public Player player;
-    public RoundTour roundTour;
+    private Board board;
+    private Player player;
+    private RoundTour roundTour;
 
     public GameState(Board board, Player player, RoundTour roundTour){
         this.board = board;
